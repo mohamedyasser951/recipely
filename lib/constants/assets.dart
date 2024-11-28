@@ -18,6 +18,10 @@ class Assets {
   /// Assets/icons/Search.svg
   static const String iconsSearch = "Assets/icons/Search.svg";
 
+  /// Assets for imagesIcLauncher
+  /// Assets/images/ic_launcher.png
+  static const String imagesIcLauncher = "Assets/images/ic_launcher.png";
+
   /// Assets for imagesOnBoarding1
   /// Assets/images/onBoarding1.svg
   static const String imagesOnBoarding1 = "Assets/images/onBoarding1.svg";

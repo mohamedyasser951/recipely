@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:recipely/home_page.dart';
+import 'package:recipely/features/layout/presentation/pages/main_layout.dart';
+import 'package:recipely/services/serviceLoactor/service_locator.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await ServiceLocator.init();
   runApp(const App());
 }
 
@@ -16,7 +18,7 @@ class App extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
-      home: const HomePage(),
+      home: const MainLayout(),
     );
   }
 }

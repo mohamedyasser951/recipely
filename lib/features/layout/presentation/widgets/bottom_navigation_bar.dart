@@ -18,10 +18,14 @@ class BottomNavBar extends StatelessWidget {
       onTap: (index) =>
           context.read<BottomNavCubit>().changeBottomNav(index: index),
       items: [
-        BottomNavigationBarItem(icon: SvgPicture.asset(Assets.iconsHome)),
-        BottomNavigationBarItem(icon: SvgPicture.asset(Assets.iconsSearch)),
-        BottomNavigationBarItem(icon: SvgPicture.asset(Assets.iconsBookmark)),
-        BottomNavigationBarItem(icon: SvgPicture.asset(Assets.iconsProfile))
+        BottomNavigationBarItem(
+            label: "", icon: SvgPicture.asset(Assets.iconsHome)),
+        BottomNavigationBarItem(
+            label: "", icon: SvgPicture.asset(Assets.iconsSearch)),
+        BottomNavigationBarItem(
+            label: "", icon: SvgPicture.asset(Assets.iconsBookmark)),
+        BottomNavigationBarItem(
+            label: "", icon: SvgPicture.asset(Assets.iconsProfile))
       ],
     );
   }
