@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:recipely/constants/bloc_observer.dart';
 import 'package:recipely/features/layout/presentation/pages/main_layout.dart';
 import 'package:recipely/services/serviceLoactor/service_locator.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await ServiceLocator.init();
+  Bloc.observer = MyBlocObserver();
   runApp(const App());
 }
 

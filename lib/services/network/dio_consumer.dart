@@ -7,7 +7,7 @@ class DioConsumer {
 
   DioConsumer({
     required this.dio,
-  });  
+  });
 
   Future get(
       String path, Object data, Map<String, dynamic> queryParameters) async {
@@ -29,8 +29,6 @@ class DioConsumer {
         return handler.next(e); // Continue
       },
     ));
-
-   
   }
 }
 

@@ -6,3 +6,7 @@ abstract class HomeEvent extends Equatable {
   @override
   List<Object> get props => [];
 }
+
+class GetAllRecipesByLimit extends HomeEvent {
+  const GetAllRecipesByLimit();
+}
