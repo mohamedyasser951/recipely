@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:recipely/features/home/presentation/bloc/home_bloc.dart';
-import 'package:recipely/features/home/presentation/widgets/recipe_item.dart';
+import 'package:recipely/features/recipe/presentation/bloc/home_bloc.dart';
+import 'package:recipely/features/recipe/presentation/widgets/recipe_item.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
-class RecipesBuilder extends StatefulWidget {
+class RecipesBuilder extends StatelessWidget {
   const RecipesBuilder({super.key});
 
-  @override
-  State<RecipesBuilder> createState() => _RecipesBuilderState();
-}
-
-class _RecipesBuilderState extends State<RecipesBuilder> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<HomeBloc, HomeState>(
@@ -27,7 +22,7 @@ class _RecipesBuilderState extends State<RecipesBuilder> {
                 ),
                 itemBuilder: (context, index) => Card(
                   elevation: 6,
-                  color: Colors.grey[300],
+                  color: Colors.grey[200],
                   child: const SizedBox(
                     height: 180,
                     width: double.infinity,
@@ -37,9 +32,16 @@ class _RecipesBuilderState extends State<RecipesBuilder> {
             );
           case Status.success:
             return SliverList.separated(
-                itemCount: state.recipes.length,
-                itemBuilder: (context, index) =>
-                    RecipeItem(recipe: state.recipes[index]),
+                itemCount: state.hasReashedMax
+                    ? state.recipes.length
+                    : state.recipes.length + 1,
+                itemBuilder: (context, index) {
+                  return index >= state.recipes.length
+                      ? const Center(
+                          child: CircularProgressIndicator.adaptive(),
+                        )
+                      : RecipeItem(recipe: state.recipes[index]);
+                },
                 separatorBuilder: (context, index) => const SizedBox(
                       height: 4,
                     ));
