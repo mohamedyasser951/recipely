@@ -8,7 +8,7 @@ import 'package:recipely/services/serviceLoactor/service_locator.dart';
 
 class MainLayout extends StatelessWidget {
   static List<Widget> screens = [
-    HomePage(),
+    const HomePage(),
     Container(
       color: Colors.red,
     ),
@@ -35,12 +35,12 @@ class MainLayout extends StatelessWidget {
       child: BlocBuilder<BottomNavCubit, BottomNavState>(
         builder: (context, state) {
           final index = context.read<BottomNavCubit>().bottomNavIndex;
-          return Scaffold(
-            body: Padding(
-              padding: const EdgeInsets.only(top: 30),
-              child: screens[index],
+          return SafeArea(
+            
+            child: Scaffold(
+              body: screens[index],
+              bottomNavigationBar: const BottomNavBar(),
             ),
-            bottomNavigationBar: const BottomNavBar(),
           );
         },
       ),

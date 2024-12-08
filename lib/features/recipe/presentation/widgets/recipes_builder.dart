@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:recipely/features/recipe/presentation/bloc/home_bloc.dart';
+import 'package:recipely/features/recipe/presentation/pages/recipe_details.dart';
 import 'package:recipely/features/recipe/presentation/widgets/recipe_item.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
@@ -40,7 +41,18 @@ class RecipesBuilder extends StatelessWidget {
                       ? const Center(
                           child: CircularProgressIndicator.adaptive(),
                         )
-                      : RecipeItem(recipe: state.recipes[index]);
+                      : InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => RecipeDetailsPage(
+                                          recipe: state.recipes[index],
+                                        )));
+                          },
+                          child: Hero(
+                              tag: state.recipes[index].id.toString(),
+                              child: RecipeItem(recipe: state.recipes[index])));
                 },
                 separatorBuilder: (context, index) => const SizedBox(
                       height: 4,

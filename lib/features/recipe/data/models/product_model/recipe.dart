@@ -38,7 +38,7 @@ class Recipe {
   factory Recipe.fromJson(Map<String, dynamic> json) => Recipe(
         id: json['id'] as int?,
         name: json['name'] as String?,
-        ingredients: json['ingredients'] as List<dynamic>?,
+        ingredients: json['ingredients'] as List<dynamic>? ,
         instructions: json['instructions'] as List<dynamic>?,
         prepTimeMinutes: json['prepTimeMinutes'] as int?,
         cookTimeMinutes: json['cookTimeMinutes'] as int?,

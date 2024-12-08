@@ -73,6 +73,11 @@ class RecipeItem extends StatelessWidget {
                   "${recipe.rating!} rate",
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
+                const Spacer(),
+                Text(
+                  recipe.cuisine!,
+                  style: Theme.of(context).textTheme.bodyLarge,
+                )
               ],
             ),
             const SizedBox(
@@ -84,3 +89,32 @@ class RecipeItem extends StatelessWidget {
     );
   }
 }
+
+// [
+//   "Pizza",
+//   "Italian",
+//   "Vegetarian",
+//   "Stir-fry",
+//   "Asian",
+//   "Cookies",
+//   "Dessert",
+//   "Baking",
+//   "Pasta",
+//   "Chicken",
+//   "Salsa",
+//   "Salad",
+//   "Quinoa",
+//   "Bruschetta",
+//   "Beef",
+//   "Caprese",
+//   "Shrimp",
+//   "Biryani",
+//   "Main course",
+//   "Indian",
+//   "Pakistani",
+//   "Karahi",
+//   "Keema",
+//   ...
+//   ...
+//   ...
+// ]

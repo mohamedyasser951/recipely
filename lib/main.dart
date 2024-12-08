@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:recipely/constants/bloc_observer.dart';
 import 'package:recipely/features/layout/presentation/pages/main_layout.dart';
@@ -19,8 +20,11 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        useMaterial3: true,
-      ),
+          useMaterial3: true,
+          appBarTheme: const AppBarTheme(
+              backgroundColor: Colors.white,
+              systemOverlayStyle:
+                  SystemUiOverlayStyle(statusBarColor: Colors.white))),
       home: const MainLayout(),
     );
   }
